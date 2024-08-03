@@ -1,6 +1,20 @@
 [package]
 name = "rhod"
+authors = ["Andrei Cravtov <the.andrei.cravtov@gmail.com>"]
 version = "0.1.0"
 edition = "2021"
+description = "A Zod-inspired runtime data validation library for the Rhai scripting language"
+homepage = "https://github.com/AndreiCravtov/rhod"
+repository = "https://github.com/AndreiCravtov/rhod"
+license = "Apache-2.0"
+keywords = ["rhai", "validation", "validation", "plugin"]
+categories = ["data-structures", "parsing", "value-formatting"]
+
+[features]
+sync = ["rhai/sync"]
+decimal = ["rhai/decimal", "rust_decimal"]
 
 [dependencies]
+thiserror = "1.0"
+rhai = { version = "1.19", features = ["internals"] }
+rust_decimal = { version = "1.35", optional = true }

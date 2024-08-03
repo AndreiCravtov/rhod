@@ -5,7 +5,7 @@ mod context;
 mod error;
 mod issue;
 mod path;
-mod value;
+pub mod value;
 
 pub(crate) mod reify;
 

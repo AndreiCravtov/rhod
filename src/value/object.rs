@@ -1,11 +1,3 @@
-/////////////////////////////////////////
-/////////////////////////////////////////
-//////////                     //////////
-//////////     RhodObject      //////////
-//////////                     //////////
-/////////////////////////////////////////
-/////////////////////////////////////////
-
 use rhai::Dynamic;
 
 use crate::{ImmutableString, Map};
@@ -20,18 +12,30 @@ pub struct RhodObject {
 }
 
 impl RhodObject {
-    pub fn parse_visit(
+    #[inline(always)]
+    pub fn new(shape: Map<ObjectKey, Box<AnyRhodValue>>) -> Self {
+        Self { shape }
+    }
+
+    fn _parse_visit(
         &self,
-        value: Dynamic,
+        value: &Dynamic,
         path: ImmutablePath,
         parent: ParseContext,
-    ) -> Result<(), ()> {
+    ) -> Result<Dynamic, RhodError> {
+        // may allow for stronger type guarantees than just "dynamic" with optional <Output> type??
         todo!()
     }
 }
 
 impl RhodValue for RhodObject {
-    fn parse_visit(&self, value: &Dynamic) -> Result<Dynamic, RhodError> {
+    fn parse_visit(
+        &self,
+        value: &Dynamic,
+        path: ImmutablePath,
+        parent: ParseContext,
+    ) -> Result<Dynamic, RhodError> {
+        // check `Self::_parse_visit` for rough sketch of the code
         todo!()
     }
 }

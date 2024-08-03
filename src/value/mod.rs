@@ -2,10 +2,13 @@ use std::any::Any;
 
 use rhai::Dynamic;
 
+use crate::context::ParseContext;
 use crate::error::RhodError;
+use crate::path::ImmutablePath;
 
-mod immutable;
-mod object;
+pub mod immutable;
+pub mod object;
+
 /////////////////////////////////////////
 /////////////////////////////////////////
 //////////                     //////////
@@ -15,7 +18,12 @@ mod object;
 /////////////////////////////////////////
 
 pub trait RhodValue: Any {
-    fn parse_visit(&self, value: &Dynamic) -> Result<Dynamic, RhodError>;
+    fn parse_visit(
+        &self,
+        value: &Dynamic,
+        path: ImmutablePath,
+        parent: ParseContext,
+    ) -> Result<Dynamic, RhodError>;
 }
 
 /// The [RhodValue] trait object, which could be any [RhodValue]

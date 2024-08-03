@@ -1,3 +1,5 @@
+//! TODO: credit the Rhai project for this file, for licencing reasons
+
 /// Macro to cast an identifier or expression to another type with type checks.
 ///
 /// Runs _code_ if _variable_ or _expression_ is of type _type_, otherwise run _fallback_.

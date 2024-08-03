@@ -1,0 +1,1 @@
+look into adapting this library: https://github.com/jprochazk/garde/tree/main/garde/src
